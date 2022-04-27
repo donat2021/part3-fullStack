@@ -59,6 +59,9 @@ const App = () => {
       setPersons(persons.concat(savedPerson))
       notify(`Added ${savedPerson.name}`)
     })
+    .catch(error=>{
+      notify(error.response.data.error)
+    })
   }
 
   const deletePerson = (id) => { 
