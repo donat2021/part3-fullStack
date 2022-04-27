@@ -25,7 +25,7 @@ mongoose.connect(url)
       required:true,
       validate:{
         validator:(n)=>{
-          return 
+          return /^\d{2}-\d+$/.test(n)||/^\d{3}-\d+$/.test(n)
         },
         message:props=>`${props.value} is not a valid number`
       }
