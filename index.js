@@ -7,7 +7,7 @@ const Person = require('./model/person')
 
 
 app.use(express.json())
-morgan.token('post', (req, res) => JSON.stringify(req.body))
+morgan.token('post', (req) => JSON.stringify(req.body))
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :post'))
 
 app.use(cors())
@@ -64,7 +64,7 @@ app.post('/api/persons', (request, response,next) => {
   person.save().then(savedPerson => {
     response.json(savedPerson)
   })
-  .catch(error => next(error))
+    .catch(error => next(error))
 })
 app.get('/info',(request,response) => {
   Person.count().then(personCount=>{

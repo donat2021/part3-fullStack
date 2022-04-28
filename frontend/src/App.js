@@ -60,7 +60,7 @@ const App = () => {
       notify(`Added ${savedPerson.name}`)
     })
     .catch(error=>{
-      notify(error.response.data.error)
+      notify(error.response.data.error,'alert')
     })
   }
 

@@ -21,14 +21,14 @@ const Person = mongoose.model('Person', noteSchema)
 
 if(process.argv.length==5)
 {
-const note = new Person({
+  const note = new Person({
     name:process.argv[3],
     number:process.argv[4]
   })
-  note.save().then(result => {
-    console.log(`added ${process.argv[3]} number ${process.argv[4]} to phonebook`)
+  note.save().then(
+    console.log(`added ${process.argv[3]} number ${process.argv[4]} to phonebook`),
     mongoose.connection.close()
-  })
+  )
 }
 else
 {
